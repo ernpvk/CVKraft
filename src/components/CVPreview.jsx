@@ -12,9 +12,6 @@ export const CVPreview = memo(function CVPreview({ personalData, educationData }
   // }
 
   const { firstName, lastName, email, phone, links } = personalData;
-  const { institution, degree, fieldOfStudy, location, duration, current } = educationData;
-
-  let endYear = current ? "Present" : convertDate(duration.endYear);
 
   return (
     <div className="h-full bg-white p-8 overflow-y-auto">
@@ -57,26 +54,40 @@ export const CVPreview = memo(function CVPreview({ personalData, educationData }
           })}
         </div>
       </div>
+
       {/* Education */}
       <div>
-        {(educationData?.institution || educationData?.degree || educationData?.fieldOfStudy) && (
+        {educationData.some((edu) => edu.institution || edu.degree || edu.fieldOfStudy) && (
           <h1 className="text-md font-bold mb-2 border-b border-gray-400">Education</h1>
         )}
-        <div>
-          <span className="text-xs font-bold mb-1 flex justify-between">
-            <span>
-              {" "}
-              {institution}
-              {location.city && `, ${location.city}`}
-            </span>
-            <span>
-              {duration.startYear && convertDate(duration.startYear)} - {endYear}
-            </span>
-          </span>
-          <div className="text-xs mb-2">
-            {degree} {fieldOfStudy}
-          </div>
-        </div>
+        {educationData.map((education, index) => {
+          if (!education.institution && !education.degree && !education.fieldOfStudy) return null;
+          const startDate = education.duration.startYear
+            ? convertDate(education.duration.startYear)
+            : "";
+          const endDate = education.current
+            ? "Present"
+            : education.duration.endYear
+            ? convertDate(education.duration.endYear)
+            : "";
+
+          return (
+            <div key={index} className="mb-2">
+              <span className="text-xs font-bold mb-1 flex justify-between">
+                <span>
+                  {education.institution}
+                  {education.location.city && `, ${education.location.city}`}
+                </span>
+                <span>
+                  {startDate} - {endDate}
+                </span>
+              </span>
+              <div className="text-xs mb-2">
+                {education.degree} {education.fieldOfStudy && `in ${education.fieldOfStudy}`}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

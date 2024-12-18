@@ -12,20 +12,22 @@ export default function Builder() {
     links: [{ name: "", url: "" }],
   });
 
-  const [educationData, setEducationData] = useState({
-    institution: "",
-    degree: "",
-    fieldOfStudy: "",
-    location: {
-      city: "",
-      country: "",
+  const [educationData, setEducationData] = useState([
+    {
+      institution: "",
+      degree: "",
+      fieldOfStudy: "",
+      location: {
+        city: "",
+        country: "",
+      },
+      duration: {
+        startYear: "",
+        endYear: "",
+      },
+      current: false,
     },
-    duration: {
-      startYear: "",
-      endYear: "",
-    },
-    current: false,
-  });
+  ]);
 
   // const [experienceData, setExperienceData] = useState({
   //   company: "",
