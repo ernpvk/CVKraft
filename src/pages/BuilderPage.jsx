@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PersonalDetails from "../components/forms/PersonalDetails";
+import Education from "../components/forms/Education";
 import { CVPreview } from "../components/CVPreview";
 
 export default function Builder() {
@@ -11,15 +12,20 @@ export default function Builder() {
     links: [{ name: "", url: "" }],
   });
 
-  // const [educationData, setEducationData] = useState({
-  //   university: "",
-  //   city: "",
-  //   country: "",
-  //   role: "",
-  //   yearStart: "",
-  //   yearEnd: "",
-  //   description: [],
-  // });
+  const [educationData, setEducationData] = useState({
+    institution: "",
+    degree: "",
+    fieldOfStudy: "",
+    location: {
+      city: "",
+      country: "",
+    },
+    duration: {
+      startYear: "",
+      endYear: "",
+    },
+    current: false,
+  });
 
   // const [experienceData, setExperienceData] = useState({
   //   company: "",
@@ -32,18 +38,18 @@ export default function Builder() {
   // });
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 h-screen">
-      <div className="order-2 md:order-1">
+    <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
+      <div className="col-span-1 order-2 md:order-1">
         <div className="text-3xl">CVKraft</div>
         <div>
           <PersonalDetails data={personalData} onChange={setPersonalData} />
-          <div>Education</div>
+          <Education data={educationData} onChange={setEducationData} />
           <div>Experience</div>
           <div>Skills</div>
         </div>
       </div>
-      <div className="order-1 md:order-2 h-screen">
-        <CVPreview data={personalData} />
+      <div className="col-span-2 order-1 md:order-2 h-screen">
+        <CVPreview personalData={personalData} educationData={educationData} />
       </div>
     </div>
   );

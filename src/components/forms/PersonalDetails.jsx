@@ -176,7 +176,7 @@ export default function PersonalDetails({ data, onChange }) {
                       className="w-full p-2 border rounded focus:ring-2 focus:ring-blue-200 focus:outline-none mb-2 border-gray-300"
                     />
                     {link.url && validateLink(link.url) === "" && (
-                      <div className="flex gap-2 mt-2 text-gray-500">
+                      <div className="flex gap-2 mt-2 text-gray-500 items-center">
                         {getLinkIcon(link.url)}
                         <span className="text-sm">{link.url}</span>
                       </div>
