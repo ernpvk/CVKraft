@@ -2,7 +2,7 @@ import { memo } from "react";
 import { getLinkIcon } from "../utils/GetLinkIcon";
 import convertDate from "../utils/convertDate";
 
-export const CVPreview = memo(function CVPreview({ personalData, educationData }) {
+export const CVPreview = memo(function CVPreview({ personalData, educationData, experienceData }) {
   // if (!personalData) {
   //   return (
   //     <div className="h-full flex items-center justify-center text-gray-500">
@@ -84,6 +84,46 @@ export const CVPreview = memo(function CVPreview({ personalData, educationData }
               </span>
               <div className="text-xs mb-2">
                 {education.degree} {education.fieldOfStudy && `in ${education.fieldOfStudy}`}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* Experience */}
+      <div>
+        {experienceData.some((exp) => exp.company || exp.position) && (
+          <h1 className="text-md font-bold mb-2 border-b border-gray-400">Experience</h1>
+        )}
+        {experienceData.map((experience, index) => {
+          if (!experience.company && !experience.position) return null;
+          const startDate = experience.duration.startYear
+            ? convertDate(experience.duration.startYear)
+            : "";
+          const endDate = experience.current
+            ? "Present"
+            : experience.duration.endYear
+            ? convertDate(experience.duration.endYear)
+            : "";
+
+          return (
+            <div key={index} className="mb-2">
+              <span className="text-xs font-bold mb-1 flex justify-between">
+                <span>{experience.position}</span>
+                <span>
+                  {startDate} - {endDate}
+                </span>
+              </span>
+              <div className="text-xs mb-2">
+                {experience.company}
+                {experience.location.city && `, ${experience.location.city}`}
+                {experience.location.country && `, ${experience.location.country}`}
+              </div>
+              <div className="text-xs mb-2">
+                <ul className="list-disc list-inside">
+                  {experience.responsibilities.map((responsibility) => (
+                    <li key={responsibility}>{responsibility}</li>
+                  ))}
+                </ul>
               </div>
             </div>
           );

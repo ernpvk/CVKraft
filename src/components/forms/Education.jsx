@@ -173,9 +173,9 @@ export default function Education({ data, onChange }) {
           <button
             type="button"
             onClick={addEducation}
-            className="w-full p-2 text-blue-500 hover:text-blue-600 border-2 border-dashed border-blue-200 rounded-lg transition-colors duration-200 hover:border-blue-300" 
+            className="w-full p-2 text-blue-500 hover:text-blue-600 border-2 border-dashed border-blue-200 rounded-lg transition-colors duration-200 hover:border-blue-300"
           >
-            + Add Another Education
+            + Add Education
           </button>
         </div>
       )}
