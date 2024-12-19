@@ -33,7 +33,9 @@ export default function Skill({ data, onChange }) {
   return (
     <div className="border rounded-lg mb-4">
       <button
-        className="w-full p-4 text-left font-medium flex justify-between items-center"
+        className={`w-full p-4 text-left font-medium flex justify-between items-center hover:bg-blue-50 transition-colors duration-200 ${
+          isOpen ? "bg-blue-100 hover:bg-blue-100" : ""
+        }`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>Skill</span>
