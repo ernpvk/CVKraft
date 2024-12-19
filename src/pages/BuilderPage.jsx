@@ -66,9 +66,9 @@ export default function Builder() {
   ]);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
-      <div className="col-span-1 order-2 md:order-1 overflow-none md:overflow-y-auto p-5">
-        <div className="text-3xl">CVKraft</div>
+    <div className="grid grid-cols-1 md:grid-cols-3 h-screen bg-gray-100">
+      <div className="col-span-1 order-2 md:order-1 h-[50vh] md:h-screen overflow-y-auto p-5 bg-white">
+        <div className="text-3xl mb-4">CVKraft</div>
         <div>
           <PersonalDetails data={personalData} onChange={setPersonalData} />
           <Education data={educationData} onChange={setEducationData} />
@@ -77,14 +77,17 @@ export default function Builder() {
           <Skill data={skillData} onChange={setSkillData} />
         </div>
       </div>
-      <div className="col-span-2 order-1 md:order-2  ">
-        <CVPreview
-          personalData={personalData}
-          educationData={educationData}
-          experienceData={experienceData}
-          projectData={projectData}
-          skillData={skillData}
-        />
+
+      <div className="col-span-2 order-1 md:order-2 h-[50vh] md:h-screen p-4 md:p-8 overflow-auto bg-gray-100">
+        <div className="w-full md:w-[210mm] mx-auto bg-white shadow-lg min-h-[297mm] scale-[0.7] md:scale-100 origin-top">
+          <CVPreview
+            personalData={personalData}
+            educationData={educationData}
+            experienceData={experienceData}
+            projectData={projectData}
+            skillData={skillData}
+          />
+        </div>
       </div>
     </div>
   );
