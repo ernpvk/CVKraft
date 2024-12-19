@@ -2,7 +2,12 @@ import { memo } from "react";
 import { getLinkIcon } from "../utils/GetLinkIcon";
 import convertDate from "../utils/convertDate";
 
-export const CVPreview = memo(function CVPreview({ personalData, educationData, experienceData }) {
+export const CVPreview = memo(function CVPreview({
+  personalData,
+  educationData,
+  experienceData,
+  projectData,
+}) {
   // if (!personalData) {
   //   return (
   //     <div className="h-full flex items-center justify-center text-gray-500">
@@ -121,6 +126,33 @@ export const CVPreview = memo(function CVPreview({ personalData, educationData, 
               <div className="text-xs mb-2">
                 <ul className="list-disc list-inside">
                   {experience.responsibilities.map((responsibility) => (
+                    <li key={responsibility}>{responsibility}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* Project */}
+      <div className="mb-4">
+        {projectData.some((prj) => prj.projectName || prj.role) && (
+          <h1 className="text-md font-bold mb-2 border-b border-gray-400">Project</h1>
+        )}
+        {projectData.map((project, index) => {
+          if (!project.projectName && !project.role) return null;
+          const date = project.date ? convertDate(project.date) : "";
+
+          return (
+            <div key={index} className="mb-2">
+              <span className="text-xs font-bold mb-1 flex justify-between">
+                <span>{project.projectName}</span>
+                <span>{date}</span>
+              </span>
+              <div className="text-xs mb-2">{project.role}</div>
+              <div className="text-xs mb-2">
+                <ul className="list-disc list-inside">
+                  {project.responsibilities.map((responsibility) => (
                     <li key={responsibility}>{responsibility}</li>
                   ))}
                 </ul>

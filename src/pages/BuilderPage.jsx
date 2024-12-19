@@ -50,7 +50,7 @@ export default function Builder() {
 
   const [projectData, setProjectData] = useState([
     {
-      projectTitle: "",
+      projectName: "",
       role: "",
       date: "",
       responsibilities: [""],

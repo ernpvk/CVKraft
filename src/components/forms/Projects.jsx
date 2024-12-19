@@ -8,7 +8,7 @@ export default function Project({ data, onChange }) {
     onChange([
       ...data,
       {
-        projectTitle: "",
+        projectName: "",
         role: "",
         date: "",
         responsibilities: [""],
@@ -95,9 +95,9 @@ export default function Project({ data, onChange }) {
               <div className="space-y-4">
                 <div className="grid grid-cols-1 gap-4">
                   <InputField
-                    label="Project Title"
-                    name="projectTitle"
-                    value={project.projectTitle}
+                    label="Project Name"
+                    name="projectName"
+                    value={project.projectName}
                     onChange={(e) => updateField(index, e.target.name, e.target.value)}
                     required
                   />
