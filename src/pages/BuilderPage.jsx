@@ -83,6 +83,7 @@ export default function Builder() {
           educationData={educationData}
           experienceData={experienceData}
           projectData={projectData}
+          skillData={skillData}
         />
       </div>
     </div>

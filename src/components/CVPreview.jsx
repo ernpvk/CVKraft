@@ -7,6 +7,7 @@ export const CVPreview = memo(function CVPreview({
   educationData,
   experienceData,
   projectData,
+  skillData,
 }) {
   // if (!personalData) {
   //   return (
@@ -157,6 +158,24 @@ export const CVPreview = memo(function CVPreview({
                   ))}
                 </ul>
               </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* Skill */}
+      <div className="mb-4">
+        {skillData.some((skill) => skill.category) && (
+          <h1 className="text-md font-bold mb-2 border-b border-gray-400">Skill</h1>
+        )}
+        {skillData.map((skill, index) => {
+          if (!skill.category && !skill.skill) return null;
+
+          return (
+            <div key={index}>
+              <span className="text-xs mb-1">
+                {skill.category && <span className="font-bold">{skill.category}: </span>}
+                <span>{skill.skill}</span>
+              </span>
             </div>
           );
         })}
