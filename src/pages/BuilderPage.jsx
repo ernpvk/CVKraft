@@ -8,6 +8,7 @@ import Skill from "../components/forms/Skills";
 import CVKraftIcon from "../assets/icons/CVKraft.png";
 
 export default function Builder() {
+  const [selectedTemplate, setSelectedTemplate] = useState("Template1");
   const [personalData, setPersonalData] = useState({
     firstName: "",
     lastName: "",
@@ -90,6 +91,7 @@ export default function Builder() {
             experienceData={experienceData}
             projectData={projectData}
             skillData={skillData}
+            template={selectedTemplate}
           />
         </div>
       </div>

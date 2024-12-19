@@ -9,7 +9,7 @@ const convertDate = (dateString) => {
 
   const formattedDate = date.toLocaleDateString("en-US", {
     year: "numeric",
-    month: "long",
+    month: "short",
   });
 
   return formattedDate;
