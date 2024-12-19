@@ -4,6 +4,7 @@ import Education from "../components/forms/Education";
 import { CVPreview } from "../components/CVPreview";
 import Experience from "../components/forms/Experience";
 import Project from "../components/forms/Projects";
+import Skill from "../components/forms/Skills";
 
 export default function Builder() {
   const [personalData, setPersonalData] = useState({
@@ -57,6 +58,13 @@ export default function Builder() {
     },
   ]);
 
+  const [skillData, setSkillData] = useState([
+    {
+      category: "",
+      skill: "",
+    },
+  ]);
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
       <div className="col-span-1 order-2 md:order-1 overflow-none md:overflow-y-auto p-5">
@@ -66,8 +74,7 @@ export default function Builder() {
           <Education data={educationData} onChange={setEducationData} />
           <Experience data={experienceData} onChange={setExperienceData} />
           <Project data={projectData} onChange={setProjectData} />
-          <div>Projects</div>
-          <div>Skills</div>
+          <Skill data={skillData} onChange={setSkillData} />
         </div>
       </div>
       <div className="col-span-2 order-1 md:order-2  ">
