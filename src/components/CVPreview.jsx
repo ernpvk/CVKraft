@@ -22,8 +22,8 @@ export const CVPreview = memo(function CVPreview({
   return (
     <div className="h-full bg-white p-8 overflow-y-auto">
       {/* Header with Name */}
-      <div className="border-b pb-6 mb-6 border-gray-400 ">
-        <h1 className="text-3xl font-bold mb-2 text-center">
+      <div className="border-b pb-4 mb-6 border-gray-400 ">
+        <h1 className="text-3xl font-bold mb-3 text-center">
           {firstName} {lastName}
         </h1>
 
@@ -62,9 +62,9 @@ export const CVPreview = memo(function CVPreview({
       </div>
 
       {/* Education */}
-      <div className="mb-4">
+      <div className="mb-6">
         {educationData.some((edu) => edu.institution || edu.degree || edu.fieldOfStudy) && (
-          <h1 className="text-md font-bold mb-2 border-b border-gray-400">Education</h1>
+        <h2 className="text-md font-bold mb-2 border-b border-gray-400">Education</h2>
         )}
         {educationData.map((education, index) => {
           if (!education.institution && !education.degree && !education.fieldOfStudy) return null;
@@ -78,7 +78,7 @@ export const CVPreview = memo(function CVPreview({
             : "";
 
           return (
-            <div key={index} className="mb-2">
+            <div key={index} className="mb-4">
               <span className="text-xs font-bold mb-1 flex justify-between">
                 <span>
                   {education.institution}
@@ -96,9 +96,9 @@ export const CVPreview = memo(function CVPreview({
         })}
       </div>
       {/* Experience */}
-      <div className="mb-4">
+      <div className="mb-6">
         {experienceData.some((exp) => exp.company || exp.position) && (
-          <h1 className="text-md font-bold mb-2 border-b border-gray-400">Experience</h1>
+          <h2 className="text-md font-bold mb-2 border-b border-gray-400">Experience</h2>
         )}
         {experienceData.map((experience, index) => {
           if (!experience.company && !experience.position) return null;
@@ -136,9 +136,9 @@ export const CVPreview = memo(function CVPreview({
         })}
       </div>
       {/* Project */}
-      <div className="mb-4">
+      <div className="mb-6">
         {projectData.some((prj) => prj.projectName || prj.role) && (
-          <h1 className="text-md font-bold mb-2 border-b border-gray-400">Project</h1>
+          <h2 className="text-md font-bold mb-2 border-b border-gray-400">Project</h2>
         )}
         {projectData.map((project, index) => {
           if (!project.projectName && !project.role) return null;
@@ -163,9 +163,9 @@ export const CVPreview = memo(function CVPreview({
         })}
       </div>
       {/* Skill */}
-      <div className="mb-4">
+      <div className="mb-6">
         {skillData.some((skill) => skill.category) && (
-          <h1 className="text-md font-bold mb-2 border-b border-gray-400">Skill</h1>
+          <h2 className="text-md font-bold mb-2 border-b border-gray-400">Skill</h2>
         )}
         {skillData.map((skill, index) => {
           if (!skill.category && !skill.skill) return null;
