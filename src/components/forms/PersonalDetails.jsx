@@ -92,11 +92,32 @@ export default function PersonalDetails({ data, onChange }) {
         className="w-full p-4 text-left font-medium flex justify-between items-center"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span>Personal Details</span>
-        <span>{isOpen ? "−" : "+"}</span>
+        <span>Personal Detail</span>
+        <span
+          className={`transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-chevron-down"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
       </button>
 
-      {isOpen && (
+      <div
+        className={`transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
         <div className="transition p-4 space-y-4">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <InputField
@@ -159,7 +180,12 @@ export default function PersonalDetails({ data, onChange }) {
             </div>
             {data.links?.map((link, index) => (
               <div key={index}>
-                <div className="flex gap-4 items-start">
+                <div
+                  className="flex gap-4 items-start  p-3 transform transition-all duration-300 animate-fade-in"
+                  style={{
+                    animation: "fadeIn 0.3s ease-in-out",
+                  }}
+                >
                   <div className="flex-1">
                     <input
                       type="text"
@@ -197,7 +223,7 @@ export default function PersonalDetails({ data, onChange }) {
             ))}
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

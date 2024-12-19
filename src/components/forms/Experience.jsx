@@ -2,7 +2,7 @@ import { useState } from "react";
 import InputField from "./InputField";
 
 export default function Experience({ data, onChange }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const addExperience = () => {
     onChange([
@@ -98,13 +98,40 @@ export default function Experience({ data, onChange }) {
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>Experience</span>
-        <span>{isOpen ? "−" : "+"}</span>
+        <span
+          className={`transform transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="feather feather-chevron-down"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
       </button>
 
-      {isOpen && (
+      <div
+        className={`transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
         <div className="p-4 space-y-4">
           {data.map((experience, index) => (
-            <div key={index} className="border rounded-lg p-4">
+            <div
+              key={index}
+              className="border rounded-lg p-4 transform transition-all duration-300 animate-fade-in"
+              style={{
+                animation: "fadeIn 0.3s ease-in-out",
+              }}
+            >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="font-medium">Experience #{index + 1}</h3>
                 {data.length > 1 && (
@@ -235,7 +262,7 @@ export default function Experience({ data, onChange }) {
             + Add Experience
           </button>
         </div>
-      )}
+      </div>
     </div>
   );
 }
