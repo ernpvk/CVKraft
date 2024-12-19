@@ -56,7 +56,7 @@ export const CVPreview = memo(function CVPreview({ personalData, educationData, 
       </div>
 
       {/* Education */}
-      <div>
+      <div className="mb-4">
         {educationData.some((edu) => edu.institution || edu.degree || edu.fieldOfStudy) && (
           <h1 className="text-md font-bold mb-2 border-b border-gray-400">Education</h1>
         )}
@@ -90,7 +90,7 @@ export const CVPreview = memo(function CVPreview({ personalData, educationData, 
         })}
       </div>
       {/* Experience */}
-      <div>
+      <div className="mb-4">
         {experienceData.some((exp) => exp.company || exp.position) && (
           <h1 className="text-md font-bold mb-2 border-b border-gray-400">Experience</h1>
         )}

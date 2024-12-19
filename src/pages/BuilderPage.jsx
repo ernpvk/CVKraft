@@ -3,6 +3,7 @@ import PersonalDetails from "../components/forms/PersonalDetails";
 import Education from "../components/forms/Education";
 import { CVPreview } from "../components/CVPreview";
 import Experience from "../components/forms/Experience";
+import Project from "../components/forms/Projects";
 
 export default function Builder() {
   const [personalData, setPersonalData] = useState({
@@ -47,15 +48,14 @@ export default function Builder() {
     },
   ]);
 
-  // const [experienceData, setExperienceData] = useState({
-  //   company: "",
-  //   city: "",
-  //   country: "",
-  //   role: "",
-  //   yearStart: "",
-  //   yearEnd: "",
-  //   description: [],
-  // });
+  const [projectData, setProjectData] = useState([
+    {
+      projectTitle: "",
+      role: "",
+      date: "",
+      responsibilities: [""],
+    },
+  ]);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
@@ -65,14 +65,17 @@ export default function Builder() {
           <PersonalDetails data={personalData} onChange={setPersonalData} />
           <Education data={educationData} onChange={setEducationData} />
           <Experience data={experienceData} onChange={setExperienceData} />
+          <Project data={projectData} onChange={setProjectData} />
+          <div>Projects</div>
           <div>Skills</div>
         </div>
       </div>
-      <div className="col-span-2 order-1 md:order-2 h-[1123.62px] ">
+      <div className="col-span-2 order-1 md:order-2  ">
         <CVPreview
           personalData={personalData}
           educationData={educationData}
           experienceData={experienceData}
+          projectData={projectData}
         />
       </div>
     </div>
