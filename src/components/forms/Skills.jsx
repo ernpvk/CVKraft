@@ -31,10 +31,10 @@ export default function Skill({ data, onChange }) {
   };
 
   return (
-    <div className="border rounded-lg mb-4">
+    <div className="border rounded-lg mb-4 bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
       <button
-        className={`w-full p-4 text-left font-medium flex justify-between items-center hover:bg-blue-50 transition-colors duration-200 ${
-          isOpen ? "bg-blue-100 hover:bg-blue-100" : ""
+        className={`w-full p-4 text-left font-medium flex justify-between items-center hover:bg-rose-50 transition-colors duration-200 ${
+          isOpen ? "bg-rose-100 hover:bg-rose-100" : ""
         }`}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -68,7 +68,7 @@ export default function Skill({ data, onChange }) {
           {data.map((skill, index) => (
             <div
               key={index}
-              className="border rounded-lg p-4 transform transition-all duration-300 animate-fade-in"
+              className="border rounded-lg p-4 transform transition-all duration-300 animate-fade-in bg-white"
               style={{
                 animation: "fadeIn 0.3s ease-in-out",
               }}

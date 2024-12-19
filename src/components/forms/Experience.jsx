@@ -92,10 +92,10 @@ export default function Experience({ data, onChange }) {
   };
 
   return (
-    <div className="border rounded-lg mb-4">
+    <div className="border rounded-lg mb-4 bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
       <button
-        className={`w-full p-4 text-left font-medium flex justify-between items-center hover:bg-blue-50 transition-colors duration-200 ${
-          isOpen ? "bg-blue-100 hover:bg-blue-100" : ""
+        className={`w-full p-4 text-left font-medium flex justify-between items-center hover:bg-violet-50 transition-colors duration-200 ${
+          isOpen ? "bg-violet-100 hover:bg-violet-100" : ""
         }`}
         onClick={() => setIsOpen(!isOpen)}
       >
