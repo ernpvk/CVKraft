@@ -11,7 +11,7 @@ import { exampleData } from "../utils/exampleData";
 
 export default function Builder() {
   const [selectedTemplate, setSelectedTemplate] = useState("professional");
-  const [selectedColor, setSelectedColor] = useState("blue");
+  const [selectedColor, setSelectedColor] = useState("#4477CE");
 
   const loadExampleData = () => {
     setPersonalData(exampleData.personalData);
@@ -130,7 +130,7 @@ export default function Builder() {
           <img src={CVKraftIcon} alt="CVKraft" className="h-8 w-8 object-contain" />
           <span>Kraft</span>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 pb-4">
           <button
             onClick={loadExampleData}
             className="px-3 py-1 text-sm text-blue-600 hover:text-blue-700 border border-blue-600 rounded-md hover:bg-blue-50 transition-colors"
@@ -168,7 +168,7 @@ export default function Builder() {
             projectData={projectData}
             skillData={skillData}
             template={selectedTemplate}
-            accentColor={selectedColor}
+            selectedColor={selectedColor}
           />
         </div>
       </div>

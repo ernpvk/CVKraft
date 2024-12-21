@@ -16,3 +16,10 @@
 .animate-fade-in {
   animation: fadeIn 0.1s ease-in-out;
 }
+
+:root {
+  --accent-color: #4477ce;
+  --accent-rgb: 68, 119, 206;
+  --bg-color: #4477ce;
+  --bg-rgb: 68, 119, 206;
+}
