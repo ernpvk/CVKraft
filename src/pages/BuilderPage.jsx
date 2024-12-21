@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PersonalDetails from "../components/forms/PersonalDetails";
 import Education from "../components/forms/Education";
 import { CVPreview } from "../components/CVPreview";
@@ -8,8 +8,10 @@ import Skill from "../components/forms/Skills";
 import CVKraftIcon from "../assets/icons/CVKraft.png";
 import TemplateSelector from "../components/templates/TemplateSelector";
 import { exampleData } from "../utils/exampleData";
+import ExportButton from "../components/ExportButton.jsx";
 
 export default function Builder() {
+  const cvRef = useRef(null);
   const [selectedTemplate, setSelectedTemplate] = useState("professional");
   const [selectedColor, setSelectedColor] = useState("#4477CE");
 
@@ -126,10 +128,17 @@ export default function Builder() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 h-screen">
       <div className="col-span-1 order-2 md:order-1 h-[50vh] md:h-screen overflow-y-auto p-5 bg-white">
-        <div className="text-3xl mb-4 flex items-center gap-2">
-          <img src={CVKraftIcon} alt="CVKraft" className="h-8 w-8 object-contain" />
-          <span>Kraft</span>
+        <div className="flex justify-between items-center ">
+          <div className="text-3xl mb-4 flex items-center gap-2">
+            <img src={CVKraftIcon} alt="CVKraft" className="h-8 w-8 object-contain" />
+            <span>Kraft</span>
+          </div>
+          <div>
+            {" "}
+            <ExportButton cvRef={cvRef} />
+          </div>
         </div>
+
         <div className="flex gap-2 pb-4">
           <button
             onClick={loadExampleData}
@@ -160,7 +169,10 @@ export default function Builder() {
       </div>
 
       <div className="col-span-2 order-1 md:order-2 h-[50vh] md:h-screen p-4 md:p-8 overflow-auto bg-gray-100">
-        <div className="w-full md:w-[210mm] mx-auto bg-white shadow-lg min-h-[297mm] scale-[0.7] md:scale-100 origin-top">
+        <div
+          ref={cvRef}
+          className="w-full md:w-[210mm] mx-auto bg-white shadow-lg min-h-[297mm] scale-[0.7] md:scale-100 origin-top"
+        >
           <CVPreview
             personalData={personalData}
             educationData={educationData}

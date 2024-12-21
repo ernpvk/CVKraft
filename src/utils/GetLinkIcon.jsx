@@ -1,5 +1,5 @@
 export const getLinkIcon = (url) => {
-  const commonStyle = "w-3.5 h-3.5"; 
+  const commonStyle = "w-3.5 h-3.5";
 
   if (url.includes("linkedin.com"))
     return (
