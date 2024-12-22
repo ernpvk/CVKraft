@@ -134,7 +134,6 @@ export default function Builder() {
             <span>Kraft</span>
           </div>
           <div>
-            {" "}
             <ExportButton cvRef={cvRef} />
           </div>
         </div>

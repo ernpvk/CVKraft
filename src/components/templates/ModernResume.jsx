@@ -39,7 +39,7 @@ export default function ModernResume({
               {links?.map((link, index) => {
                 if (!link.url) return null;
                 return (
-                  <div key={index} className="flex items-center gap-2 text-sm">
+                  <div key={index} className="flex items-center gap-2 text-sm" id="icon">
                     {getLinkIcon(link.url)}
                     <a
                       href={link.url}

@@ -19,13 +19,17 @@ export default function ProfessionalCV({
         </h1>
 
         {/* Contact Information */}
-        <div className="flex flex-wrap text-xs text-gray-600 gap-2 justify-center items-center">
+        <div
+          className="flex flex-wrap text-xs text-gray-600 gap-2 justify-center "
+          id="contact"
+          style={{ justifyContent: "center" }}
+        >
           <a
             href={`mailto:${email}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 underline flex
-            items-center gap-2"
+            gap-2"
           >
             {email && <span>{email}</span>}
           </a>
@@ -36,12 +40,12 @@ export default function ProfessionalCV({
             if (!link.url) return null;
 
             return (
-              <div key={index}>
+              <div key={index} id="icon">
                 <a
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline flex items-center gap-1"
+                  className="text-blue-600 hover:underline flex gap-1"
                 >
                   <span>{getLinkIcon(link.url)}</span>
                   <span>{link.name || link.url}</span>

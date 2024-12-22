@@ -21,13 +21,13 @@ export default function CreativeCV({
           {firstName} {lastName}
         </h1>
 
-        <div className="flex flex-wrap justify-center items-center gap-3 text-xs">
+        <div className="flex flex-wrap justify-center gap-3 text-xs" id="contact">
           {email && (
             <a href={`mailto:${email}`} className="flex items-center gap-1 hover:underline">
               {email}
             </a>
           )}
-          {phone && <span className="flex items-center gap-1">{phone}</span>}
+          {phone && <span>{phone}</span>}
           {links?.map((link, index) => {
             if (!link.url) return null;
             return (
@@ -37,6 +37,7 @@ export default function CreativeCV({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 hover:underline"
+                id="icon"
               >
                 {getLinkIcon(link.url)}
                 {link.name || link.url}
